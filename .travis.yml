@@ -16,12 +16,12 @@ before_install:
 
 script:
   - docker build -t $DOCKER_IMAGE:$GIT_LATEST_COMMIT .
-
-deploy:
-  provider: script
-  script: .docker_deploy.sh
-  on:
-    branch: master
+  
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+      echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin;
+      docker push $DOCKER_IMAGE;
+    fi
 
 notifications:
   email: false
