@@ -4,6 +4,7 @@ channels:
 dependencies:
   - jupyter_conda
   - nodejs
+  - ipympl
   - rise
   - pip:
       - autopep8
