@@ -13,25 +13,24 @@ RUN mkdir -p .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/
 
 # Add extensions
 RUN jupyter labextension install \
-    https://github.com/rmotr/jupyterlab-solutions \
     @ijmbarr/jupyterlab_spellchecker \
-    @jupyterlab/git \
-    @jupyterlab/github \
+    #@jupyterlab/git \
+    #@jupyterlab/github \
     @jupyterlab/latex \
     @jupyterlab/statusbar \
     @jupyterlab/toc \
-    @rmotr/jupyterlab-solutions \
+    #@rmotr/jupyterlab-solutions \
     @ryantam626/jupyterlab_code_formatter \
-    jupyterlab_toastify \
-    jupyter-matplotlib \
-    jupyterlab_conda
+    #jupyterlab_toastify \
+    jupyter-matplotlib
+    #jupyterlab_conda
 
 # Add server extensions
-RUN jupyter serverextension enable jupyter_conda && \
-    jupyter serverextension enable jupyterlab_code_formatter && \
-    jupyter serverextension enable jupyterlab_git && \
-    jupyter serverextension enable jupyterlab_github && \
-    jupyter serverextension enable jupyterlab_rmotr_solutions
+RUN jupyter serverextension enable jupyterlab_code_formatter
+    #jupyter serverextension enable jupyter_conda && \
+    #jupyter serverextension enable jupyterlab_git && \
+    #jupyter serverextension enable jupyterlab_github && \
+    #jupyter serverextension enable jupyterlab_rmotr_solutions
 
 # Install variable inspector
 USER root
