@@ -23,6 +23,7 @@ RUN jupyter labextension install \
     @rmotr/jupyterlab-solutions \
     @ryantam626/jupyterlab_code_formatter \
     jupyterlab_toastify \
+    jupyter-matplotlib \
     jupyterlab_conda
 
 # Add server extensions
