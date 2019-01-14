@@ -3,6 +3,7 @@ channels:
 - conda-forge
 dependencies:
   - jupyter_conda
+  - rise
   - pip:
       - autopep8
       - black
