@@ -37,7 +37,7 @@ USER root
 RUN git clone https://github.com/lckr/jupyterlab-variableInspector /opt/jupyterlab-variableInspector && \
     chmod 777 /opt/jupyterlab-variableInspector
     
-RUN fix-chmod 777 -R ${HOME}
+RUN chmod 777 -R ${HOME}
 
 USER $NB_USER
 
