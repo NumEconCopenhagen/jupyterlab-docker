@@ -6,8 +6,9 @@ dependencies:
   - pip:
       - autopep8
       - black
-      - yapf
       - jupyterlab_code_formatter
       - jupyterlab-git
       - jupyterlab_github
       - jupyterlab-solutions
+      - numecon
+      - yapf
