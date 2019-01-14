@@ -8,8 +8,8 @@ RUN conda env update -f environment.yml --quiet && \
     rm -fr work environment.yml
 
 # Enable extension manager
-RUN mkdir -p .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/ && \
-    printf "{\n\t\"enabled\" : true\n}" >> .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
+#RUN mkdir -p .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/ && \
+#    printf "{\n\t\"enabled\" : true\n}" >> .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
 
 # Add extensions
 RUN jupyter labextension install \
