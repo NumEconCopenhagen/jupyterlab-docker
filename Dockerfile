@@ -22,8 +22,9 @@ RUN jupyter labextension install \
     #@rmotr/jupyterlab-solutions \
     @ryantam626/jupyterlab_code_formatter \
     #jupyterlab_toastify \
-    jupyter-matplotlib
+    jupyter-matplotlib \
     #jupyterlab_conda
+    https://github.com/elben10/jupyterlab-variableInspector
 
 # Add server extensions
 RUN jupyter serverextension enable jupyterlab_code_formatter
