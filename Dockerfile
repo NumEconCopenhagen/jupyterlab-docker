@@ -7,42 +7,8 @@ COPY environment.yml ${HOME}/environment.yml
 RUN conda env update -f environment.yml --quiet && \
     rm -fr work environment.yml
 
-# Enable extension manager
-#RUN mkdir -p .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/ && \
-#    printf "{\n\t\"enabled\" : true\n}" >> .jupyter/lab/user-settings/\@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
-
 # Add extensions
 RUN jupyter labextension install \
-    @ijmbarr/jupyterlab_spellchecker \
-    #@jupyterlab/git \
-    #@jupyterlab/github \
-    @jupyterlab/latex \
-    @jupyterlab/statusbar \
     @jupyterlab/toc \
-    #@rmotr/jupyterlab-solutions \
-    @ryantam626/jupyterlab_code_formatter \
-    #jupyterlab_toastify \
     jupyter-matplotlib \
-    #jupyterlab_conda
-    https://github.com/elben10/jupyterlab-variableInspector
-
-# Add server extensions
-RUN jupyter serverextension enable jupyterlab_code_formatter
-    #jupyter serverextension enable jupyter_conda && \
-    #jupyter serverextension enable jupyterlab_git && \
-    #jupyter serverextension enable jupyterlab_github && \
-    #jupyter serverextension enable jupyterlab_rmotr_solutions
-
-# Install variable inspector
-USER root
-RUN git clone https://github.com/lckr/jupyterlab-variableInspector /opt/jupyterlab-variableInspector && \
-    chmod 777 /opt/jupyterlab-variableInspector
-    
-RUN chmod 777 -R ${HOME}
-
-USER $NB_USER
-
-RUN cd /opt/jupyterlab-variableInspector && \
-    npm install && \
-    npm run build && \
-    jupyter labextension install .
+    @lckr/jupyterlab_variableinspector
